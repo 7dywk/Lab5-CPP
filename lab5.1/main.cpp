@@ -1,13 +1,18 @@
 
 #include <iostream>
 #include <cmath>
+#include <cassert>
+
 using namespace std;
 
 // Прототип функції k(x, y)
 double k(const double x, const double y);
+void run_tests();
 
 int main()
 {
+    run_tests();
+    
     double p, q;
     cout << "p = "; cin >> p;
     cout << "q = "; cin >> q;
@@ -27,4 +32,13 @@ int main()
 double k(const double x, const double y)
 {
     return (sin(x) / (pow(y, 2))) + (cos(y) / (pow(x, 2)));
+}
+
+void run_tests() {
+    double result = k(1.0, 1.0);
+    double expected = 1.38177;
+    
+    assert(abs(result - expected) < 0.0001);
+    
+    cout << "Unit-test completed" << endl;
 }
